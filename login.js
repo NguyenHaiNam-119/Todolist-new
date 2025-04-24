@@ -20,7 +20,6 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
         message.textContent = "Incorrect password.";
       }
     } else {
-      // Đăng ký người dùng mới
       users[username] = password;
       localStorage.setItem("users", JSON.stringify(users));
       localStorage.setItem("currentUser", username);
