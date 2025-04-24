@@ -1,0 +1,150 @@
+body {
+  font-family: sans-serif;
+  background: linear-gradient(135deg  , #cce5ff, #e0d7ff);  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  color: #333;
+}
+
+.app {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 400px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form__input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form__button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.todo__list {
+  list-style: none;
+  padding: 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f3f5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.task__text {
+  word-break: break-word;
+  white-space: pre-wrap;
+  flex: 1;
+}
+
+.task__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.task__text.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.task__actions {
+  display: flex;
+  gap: 4px;
+}
+
+.task__btn--delete {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 6px;
+  padding: 4px 12px; 
+  border: none;
+  cursor: pointer;
+}
+
+.task__btn--edit {
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  padding: 4px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal__content {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal__buttons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal__btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal__btn--yes {
+  background-color: #dc3545;
+  color: white;
+}
+
+.modal__btn--no {
+  background-color: #6c757d;
+  color: white;
+}
+
+
+

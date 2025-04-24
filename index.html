@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>To-do List</h1>
+    <form id="todo-form" class="form">
+      <input id="todo-input" class="form__input" type="text" placeholder="Add task" required />
+      <button class="form__button" type="submit">Add</button>
+    </form>
+    <ul id="todo__list" class="todo__list"></ul>
+  </div>
+
+  <!-- Xác nhận xóa -->
+  <div id="confirmModal" class="modal hidden">
+    <div class="modal__content">
+      <p>Do you want to delete?</p>
+      <div class="modal__buttons">
+        <button id="confirmYes" class="modal__btn modal__btn--yes">Yes</button>
+        <button id="confirmNo" class="modal__btn modal__btn--no">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
