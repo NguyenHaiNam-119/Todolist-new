@@ -180,3 +180,23 @@ h1, h2 {
 #confirmYes {
   background-color: #dc3545;
 }
+
+.logout-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.logout__button {
+  background-color: #6c757d;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.logout__button:hover {
+  background-color: #495057;
+}

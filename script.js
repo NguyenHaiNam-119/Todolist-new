@@ -8,6 +8,8 @@ class Todo {
     this.confirmYes = document.getElementById("confirmYes");
     this.confirmNo = document.getElementById("confirmNo");
 
+    this.logoutButton = document.getElementById("logout-button");
+
     this.username = localStorage.getItem("currentUser");
     if (!this.username) {
       window.location.href = "login.html";
@@ -22,6 +24,15 @@ class Todo {
     this.confirmYes.addEventListener("click", () => this.confirmDelete());
     this.confirmNo.addEventListener("click", () => this.cancelDelete());
     this.tasks.forEach((task) => this.renderTask(task));
+
+    if (this.logoutButton) {
+      this.logoutButton.addEventListener("click", () => this.logout());
+    }
+  }
+
+  logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "login.html";
   }
 
   saveTasks() {
@@ -78,13 +89,15 @@ class Todo {
     li.appendChild(actions);
     this.list.appendChild(li);
 
-    checkbox.addEventListener("change", () => this.toggleComplete(taskObj.id, span, checkbox));
+    checkbox.addEventListener("change", () =>
+      this.toggleComplete(taskObj.id, span, checkbox)
+    );
     deleteBtn.addEventListener("click", () => this.showConfirmModal(li));
     editBtn.addEventListener("click", () => this.editTask(span, taskObj, label));
   }
 
   toggleComplete(id, span, checkbox) {
-    const task = this.tasks.find(t => t.id === id);
+    const task = this.tasks.find((t) => t.id === id);
     if (task) {
       task.completed = checkbox.checked;
       span.classList.toggle("completed", checkbox.checked);
@@ -100,7 +113,7 @@ class Todo {
   confirmDelete() {
     if (this.taskToDelete) {
       const id = parseInt(this.taskToDelete.dataset.id);
-      this.tasks = this.tasks.filter(t => t.id !== id);
+      this.tasks = this.tasks.filter((t) => t.id !== id);
       this.saveTasks();
       this.taskToDelete.remove();
       this.taskToDelete = null;
@@ -123,7 +136,7 @@ class Todo {
       const newValue = inputEdit.value.trim();
       if (newValue) {
         span.textContent = newValue;
-        const task = this.tasks.find(t => t.id === taskObj.id);
+        const task = this.tasks.find((t) => t.id === taskObj.id);
         if (task) {
           task.text = newValue;
           this.saveTasks();
