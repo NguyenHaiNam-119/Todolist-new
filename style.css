@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
-  background: linear-gradient(135deg  , #cce5ff, #e0d7ff);  margin: 0;
+  background: linear-gradient(135deg, #cce5ff, #e0d7ff);
+  margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -9,29 +10,31 @@ body {
   color: #333;
 }
 
-.app {
+.app, .form {
   background: white;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  width: 400px;
+  width: 500px;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
+  color: #007bff;
 }
 
 .form {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 16px;
 }
 
 .form__input {
-  flex: 1;
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 .form__button {
@@ -39,13 +42,20 @@ h1 {
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 8px 16px;
+  padding: 10px 16px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.todo__list {
+.form__button:hover {
+  background-color: #0056b3;
+}
+
+#todo__list {
   list-style: none;
   padding: 0;
+  margin-top: 16px;
 }
 
 .task {
@@ -58,16 +68,16 @@ h1 {
   margin-bottom: 8px;
 }
 
-.task__text {
-  word-break: break-word;
-  white-space: pre-wrap;
-  flex: 1;
-}
-
 .task__label {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex: 1;
+}
+
+.task__text {
+  word-break: break-word;
+  white-space: pre-wrap;
   flex: 1;
 }
 
@@ -85,7 +95,7 @@ h1 {
   background-color: #dc3545;
   color: white;
   border-radius: 6px;
-  padding: 4px 12px; 
+  padding: 6px 18px;
   border: none;
   cursor: pointer;
 }
@@ -94,7 +104,7 @@ h1 {
   background-color: #007bff;
   color: white;
   border-radius: 6px;
-  padding: 4px 12px;
+  padding: 8px 24px;
   border: none;
   cursor: pointer;
 }
@@ -146,5 +156,28 @@ h1 {
   color: white;
 }
 
+.form__message {
+  color: red;
+  text-align: center;
+  font-size: 0.9rem;
+}
 
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
 
+.todo-input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.todo-input-group .form__input {
+  flex: 1;
+}
+
+#confirmYes {
+  background-color: #dc3545;
+}
