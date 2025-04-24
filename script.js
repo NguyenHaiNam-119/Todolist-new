@@ -32,7 +32,7 @@ class Todo {
     e.preventDefault();
     const text = this.input.value.trim();
     if (text) {
-      const taskObj = { id: Date.now(), text, completed: false, createdAt: moment().format("HH:mm:ss - DD/MM/YYYY") };
+      const taskObj = { id: Date.now(), text, completed: false };
       this.tasks.push(taskObj);
       this.saveTasks();
       this.renderTask(taskObj);
@@ -56,7 +56,7 @@ class Todo {
     span.className = "task__text";
     span.textContent = taskObj.text;
     if (taskObj.completed) span.classList.add("completed");
-    
+
     label.appendChild(checkbox);
     label.appendChild(span);
 
