@@ -9,6 +9,7 @@ class Todo {
     this.confirmNo = document.getElementById("confirmNo");
 
     this.logoutButton = document.getElementById("logout-button");
+    this.alert = document.getElementById("alert");
 
     this.username = localStorage.getItem("currentUser");
     if (!this.username) {
@@ -39,6 +40,14 @@ class Todo {
     localStorage.setItem(`tasks_${this.username}`, JSON.stringify(this.tasks));
   }
 
+  showAlert() {
+    this.alert.classList.remove("hidden");
+  }
+
+  hideAlert() {
+    this.alert.classList.add("hidden");
+  }
+
   addTask(e) {
     e.preventDefault();
     const text = this.input.value.trim();
@@ -48,6 +57,9 @@ class Todo {
       this.saveTasks();
       this.renderTask(taskObj);
       this.input.value = "";
+      this.hideAlert();
+    } else {
+      this.showAlert();
     }
   }
 
@@ -141,13 +153,20 @@ class Todo {
           task.text = newValue;
           this.saveTasks();
         }
+        label.replaceChild(span, inputEdit);
+        this.hideAlert();
+      } else {
+        this.showAlert();
+        inputEdit.focus();
       }
-      label.replaceChild(span, inputEdit);
     };
 
     inputEdit.addEventListener("blur", saveEdit);
     inputEdit.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") saveEdit();
+      if (e.key === "Enter") {
+        e.preventDefault();
+        saveEdit();
+      }
     });
 
     label.replaceChild(inputEdit, span);

@@ -200,3 +200,12 @@ h1, h2 {
 .logout__button:hover {
   background-color: #495057;
 }
+
+.hidden {
+  display: none;
+}
+.alert {
+  color: red;
+  margin-top: -4px;
+  font-size: small;
+}
